@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOCOSMOS | Chocolates Artesanales</title>
+    <link rel="icon" href="imagenes/isologo-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <a href="#inicio" class="logo">CHOCO<span>SMOS</span></a>
+            <ul class="menu" id="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#usuario-seccion"> Registro</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#carrito-seccion"> Carrito (<span id="contador-carrito">0</span>)</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Un universo de <span>sabor</span></h1>
+            <p>Elaboración y comercialización de chocolates artesanales de diferentes sabores y presentaciones para regalar o compartir.</p>
+            <div class="botones">
+                <a href="#productos" class="btn btn-principal">Ver Productos</a>
+                <a href="#contacto" class="btn btn-secundario">Contáctanos</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="imagenes/0.png" alt="Chocolates CHOCOSMOS">
+        </div>
+    </section>
+
+    <!-- REGISTRO DE USUARIO -->
+    <section id="usuario-seccion" class="seccion alt-bg">
+        <div class="contenedor">
+            <h2>Registro de Usuario</h2>
+            <p class="subtitulo">Ingresa tus datos para asociarlos a tus pedidos</p>
+            <div class="registro-contenedor">
+                <form id="form-usuario" onsubmit="guardarUsuario(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required placeholder="Tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo:</label>
+                        <input type="email" id="correo" required placeholder="tu@correo.com">
+                    </div>
+                    <button type="submit" class="btn btn-principal" style="width: 100%;">Guardar Datos</button>
+                </form>
+                <div id="saludo-usuario" style="margin-top: 15px; font-weight: bold; color: #8b5a2b; text-align: center;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="seccion">
+        <div class="contenedor">
+            <h2>Nuestros Productos</h2>
+            <p class="subtitulo">Elige tus favoritos y agrégalos al carrito</p>
+            
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <img src="imagenes/0.png" alt="Chocolate Relleno">
+                    <h3>Chocolate Relleno</h3>
+                    <p>Delicioso chocolate artesanal combinado con rellenos únicos.</p>
+                    <span class="precio">Bs. 1</span>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Chocolate Relleno', 1)">Agregar al Carrito</button>
+                </div>
+
+                <div class="producto-card">
+                    <img src="imagenes/caja.png" alt="Caja Personalizada">
+                    <h3>Caja Personalizada</h3>
+                    <p>Regalos creativos para cumpleaños, aniversarios y fechas especiales.</p>
+                    <span class="precio">Bs. 20</span>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Caja Personalizada', 20)">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARRITO DE COMPRAS -->
+    <section id="carrito-seccion" class="seccion alt-bg">
+        <div class="contenedor carrito-contenedor">
+            <h2>🛒 Tu Carrito de Compras</h2>
+            <div id="lista-carrito">
+                <p class="vacio">Tu carrito está vacío.</p>
+            </div>
+            <div class="carrito-total">
+                <h3>Total a pagar: Bs. <span id="total-carrito">0</span></h3>
+            </div>
+            <div class="carrito-acciones">
+                <button class="btn btn-whatsapp" onclick="enviarPedidoWhatsApp()">Enviar Pedido por WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y PAGO QR -->
+    <section id="contacto" class="seccion">
+        <div class="contenedor">
+            <h2>Contacto y Métodos de Pago</h2>
+            <p class="subtitulo">Estamos listos para atenderte en Santa Cruz</p>
+            
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>Información</h3>
+                    <p><strong>WhatsApp:</strong> +591 67791788</p>
+                    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/@cho._.cosmos" target="_blank">@cho._.cosmos</a></p>
+                    <p><strong>Horario:</strong> Lunes a Sábado (09:00 - 18:00)</p>
+                    <p><strong>Ubicación:</strong> Calle 5 / Bibosi, Santa Cruz, Bolivia</p>
+                </div>
+
+                <div class="pago-qr">
+                    <h3> Pago por QR</h3>
+                    <p>Escanea este código con la app de tu banco para realizar tu pago y envía tu comprobante junto al pedido por WhatsApp.</p>
+                    <img src="imagenes/qrplata.jpeg" alt="Código QR de Pago CHOCOSMOS">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>CHOCOSMOS</strong> | Un universo de sabor</p>
+        <p>Santa Cruz - Bolivia</p>
+        <small>&copy; 2026 CHOCOSMOS. Todos los derechos reservados.</small>
+    </footer>
+
+</body>
+</html>
